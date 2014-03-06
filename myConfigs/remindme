@@ -1,0 +1,4 @@
+Remember to install spf13 for Vim
+
+Also, when copying config files from this repo: Remember to put "." before every filename when copying
+

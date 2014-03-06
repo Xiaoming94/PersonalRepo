@@ -1,0 +1,6 @@
+colorscheme vividchalk
+
+set shiftwidth=5
+set tabstop=5
+set softtabstop=5
+set noexpandtab

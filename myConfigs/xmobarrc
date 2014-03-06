@@ -1,0 +1,13 @@
+Config {	font = "xft:terminus:size=8:antialias=true"
+	    ,bgColor = "black"
+	    ,fgColor = "grey"
+	    ,position = TopW L 100
+	    ,lowerOnStart = True
+	    ,commands = [ Run StdinReader
+				  ,Run Date "%Y - %a %b %d - %H:%M:%S" "date" 10
+				  ,Run Com "uname" ["-s","-r"] "" 36000
+				 ]
+	    ,sepChar = "%"
+	    ,alignSep = "}{"
+	    ,template = "%StdinReader% } <fc=red>%date%</fc>{<fc=cyan>%uname%</fc>                        "
+	  }

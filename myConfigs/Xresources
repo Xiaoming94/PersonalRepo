@@ -1,0 +1,16 @@
+URxvt.depth: 32
+URxvt.background: [85]#000000
+URxvt.scrollBar_right: true
+URxvt.font: xft:inconsolata:size=9:pixelsize:10
+URxvt.foreground: #ffffff
+URxvt.scrollstyle: plain
+URxvt.scrollColor: darkgray
+URxvt.scrollBar: true
+URxvt.matcher.button: 1
+URxvt.url-select.launcher: chromium
+URxvt.termName: rxvt-256color
+URxvt*transpscrollbar: true
+URxvt.cursorBlink: true
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard

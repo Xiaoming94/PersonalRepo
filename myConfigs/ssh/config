@@ -1,0 +1,7 @@
+Host hubben
+    User henryy
+    HostName hubben.chalmers.it
+    
+Host cidremote
+    User henryy
+    HostName remote1.student.chalmers.se

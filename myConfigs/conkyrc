@@ -65,8 +65,7 @@ ${color light blue}   ${scroll 40 $nodename - $sysname $kernel on
 $machine |}
 ${font Cantarell:size=12}${color Tan1}Time and Date${color light grey} $hr
 $font${color grey}${color grey}Time:$alignc${font URW_Gothic:size=14}$color ${time %H} : ${time %M} : ${time %S}
-$font${offset 60}${execpi 60 DJS=`date +%_d`; cal | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color lightblue2}'"$DJS"'$color'/}
-# | sed ':a;N;$!ba;s/\n/\n${offset 60}/g'}
+$font${offset 60}${execpi 60 DJS=`date +%_d`; cal | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color blue}'"$DJS"'$color'/| sed ':a;N;$!ba;s/\n/\n${offset 60}/g'}
 ${font Cantarell:size=12}${color Tan1}Basic info${color light grey} $hr
 $font${color grey}Uptime:$color $uptime
 ${color grey}Frequency (in MHz):$color $freq

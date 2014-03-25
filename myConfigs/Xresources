@@ -1,7 +1,7 @@
 URxvt.depth: 32
 URxvt.background: [85]#000000
 URxvt.scrollBar_right: true
-URxvt.font: xft:inconsolata:size=9:pixelsize:10
+URxvt.font: xft:inconsolata:size=10:pixelsize:10
 URxvt.foreground: #ffffff
 URxvt.scrollstyle: plain
 URxvt.scrollColor: darkgray

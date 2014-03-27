@@ -6,12 +6,15 @@ if [ "$(ps -C xcompmgr | tail --bytes=9)" = "xcompmgr" ]; then
 	echo "Hello World!"
 else
 	hsetroot -solid "#000000" &
-	feh --bg-scale ~/Pictures/Useful/Space-HD-Wallpapers.jpg
+	feh --bg-scale ~/Pictures/background/114931.jpg
 	nm-applet &
 	# pasystray &
 	volumeicon &
 	xfce4-power-manager &
 	xcompmgr -r 0 -o 0 -D 5 -cfF &
+	conky &
+	pcmanfm -d &
+	skype &
 	trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x000000 --height 16 &
 fi
 

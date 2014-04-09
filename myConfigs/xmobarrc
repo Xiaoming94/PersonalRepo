@@ -1,4 +1,4 @@
-Config {	font = "xft:terminus:size=8:antialias=true"
+Config {	font = "xft:terminus:size=10:antialias=true"
 	    ,bgColor = "black"
 	    ,fgColor = "grey"
 	    ,position = TopW L 100
@@ -9,5 +9,5 @@ Config {	font = "xft:terminus:size=8:antialias=true"
 				 ]
 	    ,sepChar = "%"
 	    ,alignSep = "}{"
-	    ,template = "%StdinReader% } <fc=red>%date%</fc>{<fc=cyan>%uname%</fc>                        "
+	    ,template = "%StdinReader% } <fc=red>%date%</fc>{<fc=cyan>%uname%</fc>                              "
 	  }

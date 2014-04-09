@@ -81,8 +81,8 @@ myManagedHooks = composeAll
 -- Launching XMonad and some default overrides
 startup :: X ()
 startup = do
-          spawn "~/myscripts/bin/xmonadautostart"
-          spawn "pulseaudio -k"
+          spawn "~/bin/myscripts/xmonadautostart"
+          -- spawn "pulseaudio -k"
 
 myConfig = ewmh defaultConfig { 
     terminal    = myTerminal

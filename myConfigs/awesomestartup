@@ -1,0 +1,23 @@
+#! /bin/bash
+# This is my own startup script for awesome
+# This scripts runs everytime I boot into awesome
+
+if [ "$(ps -C xcompmgr | tail --bytes=9)" = "xcompmgr" ]; then
+	echo "Hello World!"
+else
+	#hsetroot -solid "#000000" &
+	#feh --bg-scale ~/Pictures/backgrounds/xmonad-background.jpg
+	nm-applet &
+	# pasystray &
+	ibus-daemon &
+	mpd &
+	volumeicon &
+	xfce4-power-manager &
+	xcompmgr -r 0 -o 0 -D 5 -cfF &
+	conky &
+	pcmanfm -d &
+	skype &
+	#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 8 --transparent true --alpha 0 --tint 0x000000 --height 16 &
+fi
+
+xrdb ~/.Xresources

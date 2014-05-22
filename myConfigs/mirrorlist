@@ -1,22 +1,26 @@
 ##
 ## Arch Linux repository mirrorlist
 ## Sorted by mirror score from mirror status page
-## Generated on 2013-10-01
+## Generated on 2014-03-01
 ##
 
-## Score: 2.1, United Kingdom
-Server = http://mirror.cinosure.com/archlinux/$repo/os/$arch
-## Score: 4.0, Sweden
+## Score: 43.4, Sweden
+#Server = http://ftp.ds.hj.se/pub/os/linux/archlinux/$repo/os/$arch
+
+## Score: 13.3, Germany
+Server = http://ftp.uni-bayreuth.de/linux/archlinux/$repo/os/$arch
+
+## Score: 5.5, United Kingdom
+Server = http://arch.serverspace.co.uk/arch/$repo/os/$arch
+
+## Score: 4.1, Sweden
 Server = http://ftp.availo.se/archlinux/$repo/os/$arch
+
+## Score: 3.8, Germany
+Server = http://ftp-stud.hs-esslingen.de/pub/Mirrors/archlinux/$repo/os/$arch
+
 ## Score: 4.3, United Kingdom
 Server = http://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/$arch
-## Score: 4.3, Sweden
+
+## Score: 3.9, Sweden
 Server = http://ftp.df.lth.se/pub/archlinux/$repo/os/$arch
-## Score: 17.8, Australia
-Server = http://ftp.iinet.net.au/pub/archlinux/$repo/os/$arch
-## Score: 28.5, Austsalia
-Server = http://archlinux.mirror.uber.com.au/$repo/os/$arch
-## Score 25.5, United States
-Server = http://mirrors.xmission.com/archlinux/$repo/os/$arch
-## Score 12.2, United States
-Server = http://dfw.mirror.rackspace.com/archlinux/$repo/os/$arch

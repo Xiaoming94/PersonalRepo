@@ -2,7 +2,7 @@
 # This is my own startup script for awesome
 # This scripts runs everytime I boot into awesome
 
-if [ "$(ps -C xcompmgr | tail --bytes=9)" = "xcompmgr" ]; then
+if [ "$(ps -C compton | tail --bytes=8)" = "compton" ]; then
 	echo "Hello World!"
 else
 	#hsetroot -solid "#000000" &
@@ -13,11 +13,14 @@ else
 	mpd &
 	volumeicon &
 	xfce4-power-manager &
-	xcompmgr -r 0 -o 0 -D 5 -cfF &
+#	xcompmgr -r 0 -o 0 -D 5 -cfF &
+	compton -b
+#	cairo-compmgr &
 	conky &
 	pcmanfm -d &
 	skype &
 	#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 8 --transparent true --alpha 0 --tint 0x000000 --height 16 &
-fi
 
+fi
 xrdb ~/.Xresources
+

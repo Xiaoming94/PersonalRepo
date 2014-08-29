@@ -55,6 +55,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 alt = "Mod1"
+home = "pcmanfm"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
@@ -270,6 +271,7 @@ globalkeys = awful.util.table.join(
     awful.key({ },  "XF86MonBrightnessUp",    function () awful.util.spawn_with_shell("xbacklight -inc 15") end),
     awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Pictures/Screenshots/ 2>/dev/null'") end),
     awful.key({ alt,    "Shift"   }, "m",     function () awful.util.spawn(mail) end),
+    awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),

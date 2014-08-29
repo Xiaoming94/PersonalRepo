@@ -50,7 +50,7 @@ own_window yes
 own_window_colour 000000
 own_window_argb_visual yes
 own_window_argb_value 110
-# own_window_transparent yes
+own_window_transparent yes
 own_window_hints sticky,undecorated,below,skip_taskbar,skip_pager
 own_window_class Conky
 own_window_type desktop
@@ -82,7 +82,7 @@ ${font Cantarell:size=16}${color Tan1}File System ${color light grey} $hr
 $font${color grey}Home - $color${fs_used /home}/${fs_size /home} ${fs_bar 6/home}
 ${color grey}Root - $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${font Cantarell:size=16}${color Tan1}Connection and Network ${color light grey}$hr
-${if_existing /proc/net/route wlp4s0}${font}${color grey}Wifi (wlp3s0): ${wireless_essid wlp3s0}
+${if_existing /proc/net/route wlp4s0}${font}${color grey}Wifi (wlp4s0): ${wireless_essid wlp4s0}
 ${color grey}IP ADDR: $color${addr wlp4s0}
 ${color grey} - Up:$color ${upspeed wlp4s0}
 ${color grey} - Down:$color ${downspeed wlp4s0}

@@ -8,12 +8,18 @@ else
 	#hsetroot -solid "#000000" &
 	#feh --bg-scale ~/Pictures/backgrounds/xmonad-background.jpg
 	nm-applet &
+	#wicd-client --tray &
 	# pasystray &
-	ibus-daemon &
+	#cmst &
+	#connman-ui-gtk &
+	dropboxd &
+	pidgin &
+	ibus-daemon -d -r -x -n awesome &
 	mpd &
 	volumeicon &
 	xfce4-power-manager &
 #	xcompmgr -r 0 -o 0 -D 5 -cfF &
+	udiskie --tray &
 	compton -b
 #	cairo-compmgr &
 	conky &
@@ -23,4 +29,3 @@ else
 
 fi
 xrdb ~/.Xresources
-

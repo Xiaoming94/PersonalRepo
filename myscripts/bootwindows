@@ -1,0 +1,5 @@
+#!/bin/bash
+#easy script to boot windows.
+
+sudo grub-reboot 'Windows Boot Manager (on /dev/sdb1)'
+reboot

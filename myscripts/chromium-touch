@@ -1,0 +1,15 @@
+#!/bin/bash
+# A little script to start chrome or chromium with touch-devices set to correct id
+
+id=$(xinput list | grep Touchscreen | grep -Eo '[0-9]{1,4}' -m 1 | head -n 1)
+
+if [ "$(pacman -Q google-chrome | grep -o google-chrome)" == "google-chrome" ];
+then
+    google-chrome-stable --touch-events=enabled --touch-devices=$id
+elif [ "$(pacman -Q chromium | grep -o chromium)" == "chromium" ];
+then
+    chromium --touch-events=enabled --touch-devices=$id
+else
+    echo 'You have not installed chrome'
+fi
+

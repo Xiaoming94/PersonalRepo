@@ -16,7 +16,7 @@ end
 sharedicons   = shared .. "/icons"
 sharedthemes  = shared .. "/themes"
 themes        = config .. "/themes"
-themename     = "/custom"
+themename     = "/custom-thinkpad"
 if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
 	themes = sharedthemes
 end
@@ -41,25 +41,25 @@ else
 end
 
 if awful.util.file_readable(config .. "/vain/init.lua") then
-    theme.useless_gap_width  = "3"
+    theme.useless_gap_width  = "10"
 end
 --}}}
 
 theme.font          = "ProggyCleanTTSZ 9"
 
-theme.bg_normal     = "#242424" --"#242424" --"#000f02" -- #222222
-theme.bg_focus      = "#094766" -- "#094766" -- #535d6c
+theme.bg_normal     = "#000000" --"#242424" --"#000f02" -- #222222
+theme.bg_focus      = "#24359b" -- "#094766" -- #535d6c
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#222847"
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#00adff"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.border_width  = "2"
+theme.border_width  = "1"
 theme.border_normal = "#c1c1c1"
-theme.border_focus  = "#094766" -- #535d6c
+theme.border_focus  = "#24359b" -- #535d6c
 theme.border_marked = "#91231c"
 
 

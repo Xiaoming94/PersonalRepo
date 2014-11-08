@@ -17,6 +17,8 @@ import XMonad.Layout.SimpleDecoration
 import XMonad.Layout.Spiral
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.Magnifier as Mag
+import XMonad.Layout.Circle
 -- import XMonad.Layout.PerWorkspace
 
 -- import XMonad.Layout.ResizableTile
@@ -27,30 +29,33 @@ import System.IO
 
 -- Define the name of all workspace
 
-myWorkspaces = ["main","web","chat","mail","dev","misc","music","cal"]
+myWorkspaces = ["1:main","2:web","3:chat","4:dev","5:music","6:misc"]
 
 -- Defining my Layout configurations. Quite lot of Layouts.
 
-myLayout = ntiled ||| stiled ||| Mirror ntiled ||| Mirror stiled ||| 
+myLayout = stiled ||| Mirror stiled ||| Mag.magnifier (Mirror stiled) |||
   spiraled ||| Full ||| fullScreen
   where
     fullScreen = noBorders (fullscreenFull Full)
     ntiled = Tall nmaster delta ratio
+    --magnified = Mag.magnifier (stiled)
     -- rstiled = ResizableTall nmaster delta ratio
-    stiled = spacing 3 $ Tall nmaster delta ratio
+    stiled = spacing space $ Tall nmaster delta ratio
     nmaster = 1 -- The number of default master windows
     ratio = 1/2
     gRatio = toRational (2/(1+sqrt(5)::Double)) -- the ratio of the master windows
     delta = 3/100 -- Percentage incrementation
 
-    spiraled = spacing 3 $ spiral gRatio
+    space = 10
+    spiraled = spacing space $ spiral gRatio
 
 -- Some personal settings and variables
 
 myTerminal = "urxvt" -- the terminal I use
 myModMask = mod4Mask
-home = "pcmanfm"
+home = myTerminal ++ " -e ranger"
 altMask = mod1Mask
+web = "chromium-touch"
 
 -- Configurations for Xmobar
 myBar = "xmobar"
@@ -65,47 +70,49 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- Some Hooks and Window rules
 
 myManagedHooks = composeAll
-  [ manageDocks
-   ,isFullscreen --> doFullFloat
+  [isFullscreen --> doFullFloat
    ,isDialog --> doCenterFloat
-   ,className =? "Chromium"  --> doShift "web"
-   ,className =? "Pidgin"   --> doShift "chat"
+   ,className =? "Chromium"  --> doShift "2:web"
+   ,className =? "Pidgin"   --> doShift "3:chat"
    ,className =? "i3lock"   --> doFullFloat
    ,className =? "Gimp"	   --> doFloat
-   ,className =? "Skype"    --> doShift "chat"
-   ,title =? "wyrd"  --> doShift "cal"
-   ,title =? "hubben"    --> doShift "chat"
-   ,manageHook defaultConfig
+   ,className =? "Skype"    --> doShift "3:chat"
+   ,className =? "Spotify"  --> doShift "5:music"
+   ,className =? "Florence" --> doIgnore
+   ,title =? "hubben"    --> doShift "3:chat"
   ]
 
 -- Launching XMonad and some default overrides
 startup :: X ()
 startup = do
-          spawn "~/bin/myscripts/xmonadautostart"
           -- spawn "pulseaudio -k"
+          setWMName "LG3D"
 
 myConfig = ewmh defaultConfig { 
     terminal    = myTerminal
   , modMask     = mod4Mask
-  , startupHook = startup
-  , manageHook  = myManagedHooks
+  , startupHook = setWMName "LG3D" <+> startup
+  , manageHook  = manageDocks <+> myManagedHooks <+> manageHook defaultConfig
   , borderWidth = 1
   , handleEventHook = handleEventHook defaultConfig <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   , layoutHook  = lessBorders OnlyFloat $ avoidStruts $ myLayout
   , workspaces  = myWorkspaces
-  , focusedBorderColor = "blue" 
+  , focusedBorderColor = "#0000ff"
   }`additionalKeys` -- My own keybindings.
     [((controlMask .|. altMask, xK_Left ), prevWS)
     ,((controlMask .|. altMask, xK_Right), nextWS)
-    ,((altMask     .|. shiftMask,   xK_w), raiseMaybe (spawn "chromium")(className =? "Chromium"))
+    ,((altMask     .|. shiftMask,   xK_w), raiseMaybe (spawn web )(className =? "Chromium"))
     ,((myModMask   .|. shiftMask,   xK_d), raiseMaybe (runInTerm "EDITOR=vim" "wyrd")(title =? "wyrd"))
     ,((myModMask   .|. controlMask, xK_m), spawn "geary")
     ,((controlMask,             xK_i),     raiseMaybe (runInTerm "-title hubben" "ssh hubben") (title =? "hubben"))
     ,((myModMask,               xK_p),     spawn "dmenu_run -fn 'inconsolata-10' -nb 'black' -nf 'red'")
     ,((myModMask,               xK_f),     spawn home)
-    ,((0,                       xK_Print), spawn "scrot")
+    ,((0,                       xK_Print), spawn "scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png")
     ,((controlMask,             xK_Print), spawn "sleep 0.2; scrot -s")
     ,((myModMask,                   xK_x), spawn "slingshot-launcher")
+    ,((myModMask   .|. controlMask, xK_h), sendMessage Mag.MagnifyMore)
+    ,((myModMask   .|. controlMask, xK_l), sendMessage Mag.MagnifyLess)
+    
     -- For Sound Control
 --    ,((0,			0x1008ff11),		   spawn "amixer set Master 5%-")
 --    ,((0,			0x1008ff13),		   spawn "amixer set Master 5%+")

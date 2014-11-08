@@ -39,8 +39,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/custom/theme.lua")
-
+beautiful.init("/usr/share/awesome/themes/custom-thinkpad/theme.lua")
 -- This is used later as the default terminal and editor to run.
 web = "chromium"
 mail = "evolution"
@@ -55,7 +54,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 alt = "Mod1"
-home = "pcmanfm"
+home = terminal .. " -e ranger"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
@@ -220,7 +219,7 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ alt, "Control"    }, "Left",   awful.tag.viewprev       ),
-    awful.key({ alt, "Control"    }, "Right",  awful.tag.viewnext       ),
+    awful.key({ alt, "Control"  }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
@@ -265,10 +264,10 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
     -- Own keybindings
-    awful.key({ alt,    "Shift"   }, "w",	 function () awful.util.spawn(web) end),
+    awful.key({ alt,    "Shift"   }, "w",	 function () awful.util.spawn(web .. " --touch-events=enabled --touch-devices=9") end),
     awful.key({ "Control" }, "i", function () awful.util.spawn(terminal .. " -e ssh hubben") end),
-    awful.key({ },  "XF86MonBrightnessDown",  function () awful.util.spawn_with_shell("xbacklight -dec 15") end),
-    awful.key({ },  "XF86MonBrightnessUp",    function () awful.util.spawn_with_shell("xbacklight -inc 15") end),
+   -- awful.key({ },  "XF86MonBrightnessDown",  function () awful.util.spawn_with_shell("xbacklight -dec 15") end),
+   -- awful.key({ },  "XF86MonBrightnessUp",    function () awful.util.spawn_with_shell("xbacklight -inc 15") end),
     awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Pictures/Screenshots/ 2>/dev/null'") end),
     awful.key({ alt,    "Shift"   }, "m",     function () awful.util.spawn(mail) end),
     awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
@@ -351,7 +350,7 @@ for i = 1, 9 do
                       end
                   end))
 
-end
+		   end
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
@@ -372,7 +371,8 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
-                     buttons = clientbuttons } },
+                     buttons = clientbuttons,
+			      size_hints_honor = true } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
@@ -384,7 +384,10 @@ awful.rules.rules = {
     --   properties = { tag = tags[1][2] } },
     { rule = { class = "Conky"},
      properties = { border_width = 0,
-				focus = false } },
+				focusable = false,
+				sticky = true,
+				size_hints = {"Program_position","program_size"}
+			} },
     { rule = { class = "Florence" },
      properties = { floating = true,
 				border_width = 0,

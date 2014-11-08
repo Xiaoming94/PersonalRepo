@@ -1,13 +1,15 @@
 Config {	font = "xft:terminus:size=8:antialias=true"
 	    ,bgColor = "black"
 	    ,fgColor = "grey"
-	    ,position = TopW L 100
+	    ,position = TopW L 90
 	    ,lowerOnStart = True
 	    ,commands = [ Run StdinReader
 				  ,Run Date "%Y - %a %b %d - %H:%M:%S" "date" 10
 				  ,Run Com "uname" ["-s","-r"] "" 36000
+				  ,Run Cpu [] 10
+				  ,Run Swap [] 10
 				 ]
 	    ,sepChar = "%"
 	    ,alignSep = "}{"
-	    ,template = "%StdinReader% } <fc=red>%date%</fc>{<fc=cyan>%uname%</fc>                              "
+	    ,template = "%StdinReader% }{<fc=yellow>%cpu%</fc>  ||  <fc=green>%swap%</fc>  ||  <fc=red>%date%</fc>  ||  <fc=cyan>%uname%</fc>"
 	  }

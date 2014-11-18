@@ -1,7 +1,4 @@
 Host hubben
-    User henryy
-    HostName hubben.chalmers.it
-    
-Host cidremote
-    User henryy
-    HostName remote1.student.chalmers.se
+	HostName hubben.chalmers.it
+	User henryy
+	Port 22

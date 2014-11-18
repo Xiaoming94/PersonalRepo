@@ -1,0 +1,7 @@
+#!/bin/bash
+echo $1
+if [ "$(ps -C $1 | grep -o $1)" == $1 ]; then
+	killall -s SIGTERM $1
+else
+	$1
+fi

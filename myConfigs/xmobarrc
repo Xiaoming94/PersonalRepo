@@ -1,15 +1,33 @@
-Config {	font = "xft:terminus:size=8:antialias=true"
+Config {	font = "xft:ProggyCleanTT:size=10:antialias=true"
 	    ,bgColor = "black"
-	    ,fgColor = "grey"
-	    ,position = TopW L 90
+	    ,fgColor = "white"
+	    ,position = Static{ xpos=0 , ypos = 0, width = 1768, height = 16}
 	    ,lowerOnStart = True
 	    ,commands = [ Run StdinReader
-				  ,Run Date "%Y - %a %b %d - %H:%M:%S" "date" 10
+				  ,Run Date "%H:%M - %b %d - %Y" "date" 10
 				  ,Run Com "uname" ["-s","-r"] "" 36000
-				  ,Run Cpu [] 10
-				  ,Run Swap [] 10
+				  ,Run Cpu [ "--Low"	,"50" -- units: %
+						  ,"--High"	,"85" -- units: %
+						  ,"--low"	,"green"
+						  ,"--normal"	,"yellow"
+						  ,"--high"	,"red"] 10
+				  ,Run Battery [ "--Low"	,"20" -- units: %
+						  ,"--High"	,"70" -- units: %
+						  ,"--low"	,"darkred"
+						  ,"--normal"	,"green"
+						  ,"--high"	,"lightgreen"] 10
+				  ,Run CoreTemp [ "--Low"	,"60"
+							  ,"--High"    ,"80"
+							  ,"--low"	,"blue"
+							  ,"--normal"  ,"gold"
+							  ,"--high"	,"red"] 10
+				  ,Run Memory ["--Low"		,"20"
+						    ,"--High"		,"80"
+						    ,"--low"		,"green"
+						    ,"--normal"	,"yellow"
+						    ,"--high"		,"red"] 10
 				 ]
 	    ,sepChar = "%"
 	    ,alignSep = "}{"
-	    ,template = "%StdinReader% }{<fc=yellow>%cpu%</fc>  ||  <fc=green>%swap%</fc>  ||  <fc=red>%date%</fc>  ||  <fc=cyan>%uname%</fc>"
+	    ,template = "<fc=cyan>%uname%</fc> ~ %StdinReader% }{%coretemp%|%battery%|%cpu%|%memory%|<fc=red>%date%</fc>"
 	  }

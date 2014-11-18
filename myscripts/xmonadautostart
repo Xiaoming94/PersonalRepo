@@ -2,28 +2,32 @@
 # autostarts applications on startup for xmonad
 
 
-if [ "$(ps -C compton | tail --bytes=8)" = "compton" ]; then
+if [ "$(ps -C dropbox | grep -o dropbox )" = "dropbox" ]; then
 	echo "Hello World!"
 else
-	hsetroot -solid "#000000" &
-	feh --bg-scale ~/.xmonad/background.jpg
 	xsetroot -cursor_name arrow
 	nm-applet &
 	# pasystray &
 	#connman-ui-gtk &
 	ibus-daemon &
 	udiskie &
-	mpd &
+i#	mpd &
 	volumeicon &
 	xfce4-power-manager &
+	mate-screensaver &
+#	mate-power-manager &
 #	xcompmgr -r 0 -o 0 -D 5 -cfF &
-	compton -b &
-	conky &
+#	compton -b &
+#	conky &
 #	pcmanfm -d &
 	skype &
 	dropboxd &
-	pidgin &
-	trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x000000 --height 16 &
+#	pidgin &
+	trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 8 --transparent true --alpha 0 --tint 0x000000 --height 16 &
 fi
-
-xrdb ~/.Xresources
+hsetroot -solid "#000000" &
+if [ -f ~/.xmonad/background.jpg ]; then
+	feh --bg-scale ~/.xmonad/background.jpg
+elif [ -f ~/.xmonad/background.png ]; then
+	feh --bg-scale ~/.xmonad/background.png
+fi

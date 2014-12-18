@@ -7,6 +7,8 @@ alias xmonadconfig='vim ~/.xmonad/xmonad.hs'
 alias aurget='wget -P /home/xiaoming/Downloads/AUR/'
 alias ls='ls --color -h --group-directories-first'
 alias awesomecfg='vim ~/.config/awesome/rc.lua'
+alias fancydesktop='startx ~/.xinitrc compiz'
+alias grep='grep --color=auto --exclude-dir=.cvs --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn'
 
 # Exports, Defining exports and variables
 
@@ -14,16 +16,17 @@ alias awesomecfg='vim ~/.config/awesome/rc.lua'
 export EDITOR=vim
 export PATH=$PATH:~/bin
 export PATH=$PATH:/home/xiaoming/bin/myscripts:/opt/bin/kf5
+export PE_DIR=/home/xiaoming/Documents/ProgrammingExercises/
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+unset GREP_OPTIONS
 #JAVA
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms128m -Xmx4096m"
 
 # Auto starting som programs
-
 
 archey3

@@ -17,7 +17,7 @@ i#	mpd &
 	mate-screensaver &
 #	mate-power-manager &
 #	xcompmgr -r 0 -o 0 -D 5 -cfF &
-#	compton -b &
+	compton -b &
 #	conky &
 #	pcmanfm -d &
 	skype &

@@ -46,7 +46,7 @@ myLayout = ntiled ||| stiled ||| Mirror ntiled ||| Mirror stiled ||| Mag.magnifi
     gRatio = toRational (2/(1+sqrt(5)::Double)) -- the ratio of the master windows
     delta = 3/100 -- Percentage incrementation
 
-    space = 10
+    space = 7
     spiraled = spacing space $ spiral gRatio
 
 -- Some personal settings and variables
@@ -100,12 +100,12 @@ myConfig = ewmh defaultConfig {
   , modMask     = mod4Mask
   , startupHook = setWMName "LG3D" <+> startup
   , manageHook  = manageDocks <+> myManagedHooks <+> manageHook defaultConfig
-  , borderWidth = 2
+  , borderWidth = 1
   , handleEventHook = handleEventHook defaultConfig <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
   , layoutHook  = lessBorders OnlyFloat $ avoidStruts $ myLayout
   , workspaces  = myWorkspaces
-  , focusedBorderColor = "darkblue"
-  , normalBorderColor = "#313131"
+  , focusedBorderColor = "#230251"
+  , normalBorderColor = "#111111"
   }`additionalKeys` -- My own keybindings.
     [((controlMask .|. altMask, xK_Left ), prevWS)
     ,((controlMask .|. altMask, xK_Right), nextWS)

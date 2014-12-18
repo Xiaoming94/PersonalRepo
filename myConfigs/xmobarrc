@@ -29,5 +29,5 @@ Config {	font = "xft:ProggyCleanTT:size=10:antialias=true"
 				 ]
 	    ,sepChar = "%"
 	    ,alignSep = "}{"
-	    ,template = "<fc=cyan>%uname%</fc> ~ %StdinReader% }{%coretemp%|%battery%|%cpu%|%memory%|<fc=red>%date%</fc>"
+	    ,template = "<fc=cyan>%uname%</fc> ~ %StdinReader% }{%coretemp% | %battery% | %cpu% | %memory% | <fc=purple>%date%</fc>"
 	  }

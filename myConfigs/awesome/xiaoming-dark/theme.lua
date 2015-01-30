@@ -16,7 +16,7 @@ end
 sharedicons   = shared .. "/icons"
 sharedthemes  = shared .. "/themes"
 themes        = config .. "/themes"
-themename     = "/custom-dark"
+themename     = "/xiaoming-dark"
 if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
 	themes = sharedthemes
 end
@@ -41,14 +41,14 @@ else
 end
 
 if awful.util.file_readable(config .. "/lain/init.lua") then
-    theme.useless_gap_width  = "15"
+    theme.useless_gap_width  = "25"
     theme.lain_icons = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
 end
 --}}}
 
-theme.font          = "ProggyCleanTTSZ 9"
+theme.font          = "Terminus 9"
 
-theme.bg_normal     = "#000000" --"#242424" --"#000f02" -- #222222
+theme.bg_normal     = "#0000009a" --"#242424" --"#000f02" -- #222222
 theme.bg_focus      = "#24359b" -- "#094766" -- #535d6c
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#222847"
@@ -59,7 +59,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
-theme.border_normal = "#c1c1c1"
+theme.border_normal = "#232323"
 theme.border_focus  = "#24359b" -- #535d6c
 theme.border_marked = "#91231c"
 

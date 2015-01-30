@@ -10,13 +10,13 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-require("vain")
-vain.widgets.terminal = "urxvt"
+local lain = require ("lain")
+lain.widgets.terminal = "urxvt"
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
+   naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
 end
@@ -25,23 +25,23 @@ end
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
+      --   Make sure we don't go into an endless error loop
+       -- if in_error then return end
+      in_error = true
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
+       naughty.notify({ preset = naughty.config.presets.critical,
+                      title = "Oops, an error happened!",
                          text = err })
-        in_error = false
-    end)
+      in_error = false
+   end)
 end
 -- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/custom-thinkpad/theme.lua")
+beautiful.init("/usr/share/awesome/themes/xiaoming-dark/theme.lua")
 -- This is used later as the default terminal and editor to run.
-web = "chromium"
+web = "chromium-touch"
 mail = "evolution"
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
@@ -60,11 +60,11 @@ home = terminal .. " -e ranger"
 local layouts =
 {
     awful.layout.suit.tile,
-    vain.layout.uselesstile,
+    lain.layout.uselesstile,
     awful.layout.suit.tile.bottom,
-    vain.layout.uselesstile.bottom,
-    vain.layout.uselessfair,
-    vain.layout.uselessfair.horizontal,
+    lain.layout.uselesstile.bottom,
+    lain.layout.uselessfair,
+    lain.layout.uselessfair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
@@ -85,7 +85,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "main","web","dev","chat","misc" }, s, layouts[1])
+    tags[s] = awful.tag({ "main","web","dev","chat","music","misc" }, s, layouts[1])
 end
 -- }}}
 
@@ -103,6 +103,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
+markup = lain.util.markup
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
@@ -111,8 +112,123 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibox
+-- Create separator
+separator = wibox.widget.textbox()
+separator:set_text(" | ")
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock(" %Y | %a %b %d | %H:%M ")
+ 
+-- CPU MONITOR WIDGET
+cpubar = awful.widget.progressbar()
+cpubar:set_color(beautiful.fg_normal)
+cpubar:set_width(55)
+cpubar:set_ticks(false)
+cputext = wibox.widget.textbox()
+cputext:set_markup("CPU: ")
+cpumargin = wibox.layout.margin(cpubar, 1, 6)
+cpumargin:set_top(2)
+cpumargin:set_bottom(2)
+cpuupd = lain.widgets.cpu({
+	timeout = 1,
+	settings = function()
+		if cpu_now.usage == "N/A" then
+			cpu_usage = 0
+		else
+			cpu_usage = tonumber(cpu_now.usage)
+			if cpu_usage < 50 then
+				cpubar:set_color(beautiful.fg_normal)
+			elseif cpu_usage < 85 then
+				cpubar:set_color("#cfc44a")
+			else
+				cpubar:set_color("#cf0e0e")
+			end
+		end
+		cpubar:set_value(cpu_usage/100)
+	end
+})
+cpuwidget = wibox.widget.background(cpumargin)
+
+-- Battery Monitor
+batbar = awful.widget.progressbar()
+batbar:set_color(beautiful.fg_normal)
+batbar:set_width(55)
+batbar:set_ticks(true)
+batindicator = wibox.widget.textbox()
+batindicator:set_markup(markup(beautiful.fg_normal,"BAT: "))
+batmargin = wibox.layout.margin(batbar, 1, 6)
+batmargin:set_top(6)
+batmargin:set_bottom(6)
+batupd = lain.widgets.bat({
+    settings = function()
+	    if bat_now.perc == "N/A" then
+		    bat_perc = 100
+		    batindicator:set_markup(markup("#2ea611","AC: "))
+	    else
+		    bat_perc = tonumber(bat_now.perc)
+		    if bat_perc >= 90 then
+			    batbar:set_color(beautiful.fg_normal)
+		    elseif bat_perc > 49 then
+			    batbar:set_color("#63cc49")
+		    elseif bat_perc > 20 then
+			    batbar:set_color("#d6d00f")
+		    else
+			    batbar:set_color("#ff0000")
+		    end
+		end
+		batbar:set_value(bat_perc / 100)
+	end
+})
+batwidget = wibox.widget.background(batmargin)
+
+-- Memory Usage Widget
+membar = awful.widget.progressbar()
+membar:set_color(beautiful.fg_normal)
+membar:set_width(55)
+membar:set_ticks(false)
+memtext = wibox.widget.textbox()
+memtext:set_text("RAM: ")
+memmargin = wibox.layout.margin(membar,1,6)
+memmargin:set_top(2)
+memmargin:set_bottom(2)
+memupd = lain.widgets.mem({
+	settings = function()
+		if mem_now.used == "N/A" then
+			ram_used = 4096
+			ram_total = 4096
+		else
+			ram_used = tonumber(mem_now.used)
+			ram_total = tonumber(mem_now.total)
+		end
+		ram_used_perc = ram_used/ram_total
+		if ram_used_perc * 100 < 20 then
+			membar:set_color("#63cc49")
+		elseif ram_used_perc * 100 < 80 then
+			membar:set_color(beautiful.fg_normal)
+		else
+			membar:set_color("cf0e0e")
+		end
+		membar:set_value(ram_used_perc)
+	end
+})
+ramwidget = wibox.widget.background(memmargin)
+-- Temperature Widget
+
+tempwidget = lain.widgets.temp({
+	timeout = 1,
+	settings = function()
+		core_temp = tonumber(coretemp_now)
+		if core_temp < 60 then
+			widget:set_markup(" TEMP: " .. markup(beautiful.fg_normal, coretemp_now .. " °C"))
+		elseif core_temp < 80 then
+			widget:set_markup(" TEMP: " .. markup("#fffb14", coretemp_now .. " °C"))
+		else
+			widget:set_markup(" TEMP: " .. markup("#cf0e0e", coretemp_now .. " °C"))
+		end
+	end
+})
+
+-- MPD Widget
+mpdwidget = lain.widgets.mpd()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -167,7 +283,7 @@ mytasklist.buttons = awful.util.table.join(
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
+    -- Create an imagebox widget which will contains an icon indicating which layout we're using.t_markup(" Cpu : " .. cpu_now.usage .. "% "t_markup(" Cpu : " .. cpu_now.usage .. "% "
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -178,7 +294,6 @@ for s = 1, screen.count() do
     )
 	-- Create a taglist widgets
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
-
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
@@ -193,6 +308,16 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(tempwidget)
+    right_layout:add(separator)
+    right_layout:add(cputext)
+    right_layout:add(cpuwidget)
+    right_layout:add(separator)
+    right_layout:add(memtext)
+    right_layout:add(ramwidget)
+    right_layout:add(separator)
+    right_layout:add(batindicator)
+    right_layout:add(batwidget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -218,8 +343,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ alt, "Control"    }, "Left",   awful.tag.viewprev       ),
-    awful.key({ alt, "Control"  }, "Right",  awful.tag.viewnext       ),
+    awful.key({ modkey  }, "Left",   awful.tag.viewprev       ),
+    awful.key({ modkey  }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
@@ -253,8 +378,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.025)    end),
+    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.025)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
@@ -264,11 +389,11 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
     -- Own keybindings
-    awful.key({ alt,    "Shift"   }, "w",	 function () awful.util.spawn(web .. " --touch-events=enabled --touch-devices=9") end),
+    awful.key({ alt,    "Shift"   }, "w",	 function () awful.util.spawn(web) end),
     awful.key({ "Control" }, "i", function () awful.util.spawn(terminal .. " -e ssh hubben") end),
    -- awful.key({ },  "XF86MonBrightnessDown",  function () awful.util.spawn_with_shell("xbacklight -dec 15") end),
    -- awful.key({ },  "XF86MonBrightnessUp",    function () awful.util.spawn_with_shell("xbacklight -inc 15") end),
-    awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Pictures/Screenshots/ 2>/dev/null'") end),
+    awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png") end),
     awful.key({ alt,    "Shift"   }, "m",     function () awful.util.spawn(mail) end),
     awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
 
@@ -372,13 +497,15 @@ awful.rules.rules = {
                      raise = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
-			      size_hints_honor = true } },
+			      size_hints_honor = false } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { class = "Tsim"},
+	 properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -392,6 +519,14 @@ awful.rules.rules = {
      properties = { floating = true,
 				border_width = 0,
 				focus = false } },
+    { rule = { class = "Google-chrome-stable"},
+     properties = { tag = tags[1][2] } },
+    { rule = { class = "Chromium"},
+     properties = { tag = tags[1][2] } },
+    { rule = { class = "Skype"},
+     properties = { tag = tags[1][4] } },
+    { rule = { class = "Spotify"}, 
+     properties = { tag = tags[1][5] } }
 }
 -- }}}
 

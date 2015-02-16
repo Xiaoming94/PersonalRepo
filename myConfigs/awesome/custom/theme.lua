@@ -40,25 +40,25 @@ else
 	theme.wallpaper = wallpaper4
 end
 
-if awful.util.file_readable(config .. "/vain/init.lua") then
-    theme.useless_gap_width  = "3"
+if awful.util.file_readable(config .. "/lain/init.lua") then
+    theme.useless_gap_width  = "10"
 end
 --}}}
 
-theme.font          = "ProggyCleanTTSZ 9"
+theme.font          = "Monospace 8"
 
 theme.bg_normal     = "#242424" --"#242424" --"#000f02" -- #222222
 theme.bg_focus      = "#094766" -- "#094766" -- #535d6c
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#222847"
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#7aa2d1"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.border_width  = "2"
-theme.border_normal = "#c1c1c1"
+theme.border_width  = "1"
+theme.border_normal = "#242424"
 theme.border_focus  = "#094766" -- #535d6c
 theme.border_marked = "#91231c"
 
@@ -126,7 +126,10 @@ theme.layout_tile = themedir .. "/layouts/tilew.png"
 theme.layout_tiletop = themedir .. "/layouts/tiletopw.png"
 theme.layout_spiral  = themedir .. "/layouts/spiralw.png"
 theme.layout_dwindle = themedir .. "/layouts/dwindlew.png"
-
+theme.layout_uselesstile = themedir .. "/layouts/tilew.png"
+theme.layout_uselesstilebottom = themedir .. "/layouts/tilebottomw.png"
+theme.layout_uselessfair = themedir .. "/layouts/fairvw.png"
+theme.layout_uselessfairh = themedir .. "/layouts/fairhw.png"
 --theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 theme.awesome_icon = themedir .. "/awesome16.png"
 

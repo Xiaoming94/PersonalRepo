@@ -1,11 +1,12 @@
 URxvt.depth: 32
-URxvt.background: [75]#000000
+URxvt.geometry: 95x30
+URxvt.background: [80]#000000
 URxvt.scrollBar_right: true
-URxvt.font: xft:inconsolata:size=10:pixelsize:10
+URxvt.font: xft:ProggyCleanTTSZ:size=14:pixelsize:10
 URxvt.foreground: #ffffff
 URxvt.scrollstyle: plain
 URxvt.scrollColor: darkgray
-URxvt.scrollBar: true
+URxvt.scrollBar: false
 URxvt.matcher.button: 1
 URxvt.url-select.launcher: chromium
 URxvt.termName: rxvt-256color

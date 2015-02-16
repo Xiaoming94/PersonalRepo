@@ -1,0 +1,53 @@
+URxvt.depth: 32
+URxvt.geometry: 95x30
+URxvt.scrollBar_right: true
+URxvt.font: xft:ProggyCleanTTSZ:size=14:pixelsize:1
+URxvt.scrollstyle: plain
+URxvt.scrollColor: darkgray
+URxvt.scrollBar: false
+URxvt.termName: rxvt-256color
+URxvt*transpscrollbar: true
+URxvt.cursorBlink: true
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.url-launcher: /usr/bin/google-chrome-stable
+URxvt.matcher.button: 1
+
+! special
+*.foreground:   #b6dce7
+*.background:   #191825
+URxvt.background: [95]#191825
+*.cursorColor:  #b6dce7
+
+! black
+*.color0:       #0b0b20
+*.color8:       #363646
+
+! red
+*.color1:       #77263c
+*.color9:       #dc4e68
+
+! green
+*.color2:       #1a5a3a
+*.color10:      #18ba6b
+
+! yellow
+*.color3:       #72842e
+*.color11:      #a5b15e
+
+! blue
+*.color4:       #313a5d
+*.color12:      #395fa5
+
+! magenta
+*.color5:       #5d2c46
+*.color13:      #aa6488
+
+! cyan
+*.color6:       #265867
+*.color14:      #4fabb1
+
+! white
+*.color7:       #586063
+*.color15:      #f3f2f2

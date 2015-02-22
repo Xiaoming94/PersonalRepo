@@ -39,7 +39,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/xiaoming-dark/theme.lua")
+beautiful.init("/usr/share/awesome/themes/custom/theme.lua")
 -- This is used later as the default terminal and editor to run.
 web = "chromium-touch"
 mail = "evolution"
@@ -59,9 +59,9 @@ home = terminal .. " -e ranger"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.tile,
+--    awful.layout.suit.tile,
     lain.layout.uselesstile,
-    awful.layout.suit.tile.bottom,
+--    awful.layout.suit.tile.bottom,
     lain.layout.uselesstile.bottom,
     lain.layout.uselessfair,
     lain.layout.uselessfair.horizontal,

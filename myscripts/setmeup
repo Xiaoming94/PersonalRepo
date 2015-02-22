@@ -2,3 +2,6 @@
 # simple script to set me up quickly
 
 
+function default {
+    pacman -S vim chromium wget urxvt awesome xorg-server xorg-server-utils xorg-apps xorg-xinput
+}

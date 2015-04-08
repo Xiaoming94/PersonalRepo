@@ -396,7 +396,8 @@ globalkeys = awful.util.table.join(
     awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png") end),
     awful.key({ alt,    "Shift"   }, "m",     function () awful.util.spawn(mail) end),
     awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
-
+    awful.key({modkey,            }, "b", function() mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+ end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
@@ -497,7 +498,7 @@ awful.rules.rules = {
                      raise = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
-			      size_hints_honor = false } },
+				 size_hints_honor = false } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },

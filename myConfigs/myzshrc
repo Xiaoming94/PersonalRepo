@@ -1,6 +1,11 @@
 # My own Zsh configurations, Here contains my exports variable and much more
 # Author: XiaoMing (Henry Yang)
 
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
 # Aliases, Defining aliases
 
 alias xmonadconfig='vim ~/.xmonad/xmonad.hs'
@@ -25,7 +30,7 @@ export QT_IM_MODULE=ibus
 unset GREP_OPTIONS
 #JAVA
 
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms128m -Xmx4096m"
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms128m -Xmx4096m"
 
 # Auto starting som programs
 

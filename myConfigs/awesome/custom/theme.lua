@@ -41,7 +41,7 @@ else
 end
 
 if awful.util.file_readable(config .. "/lain/init.lua") then
-    theme.useless_gap_width  = "10"
+    theme.useless_gap_width  = "5"
 end
 --}}}
 

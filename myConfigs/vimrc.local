@@ -1,9 +1,11 @@
-colorscheme vividchalk
+colorscheme navajo-night
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set nospell
 
-set shiftwidth=5
-set tabstop=5
-set softtabstop=5
-set noexpandtab
+"set noexpandtab
 
 syntax on
 

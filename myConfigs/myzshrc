@@ -1,33 +1,52 @@
 # My own Zsh configurations, Here contains my exports variable and much more
 # Author: XiaoMing (Henry Yang)
 
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+#if [ -n "$DESKTOP_SESSION" ];then
+#    eval $(gnome-keyring-daemon --start)
+#    export SSH_AUTH_SOCK
+#fi
 
 # Aliases, Defining aliases
 
 alias xmonadconfig='vim ~/.xmonad/xmonad.hs'
 alias aurget='wget -P /home/xiaoming/Downloads/AUR/'
-alias ls='ls --color -h --group-directories-first'
+alias ls='ls --color=auto -h --group-directories-first'
 alias awesomecfg='vim ~/.config/awesome/rc.lua'
 alias fancydesktop='startx ~/.xinitrc compiz'
 alias grep='grep --color=auto --exclude-dir=.cvs --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn'
+alias våldta='sudo !!'
+alias screenshot='scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png'
 
 # Exports, Defining exports and variables
 
 
 export EDITOR=vim
 export PATH=$PATH:~/bin
-export PATH=$PATH:/home/xiaoming/bin/myscripts:/opt/bin/kf5
+export PATH=$PATH:/home/xiaoming/bin/myscripts:/opt/bin/kf5:/home/xiaoming/.gem/ruby/2.3.0/bin/
 export PE_DIR=/home/xiaoming/Documents/ProgrammingExercises/
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+export TERM=xterm-256color
 
 unset GREP_OPTIONS
+
+
+if [ $ZSH_THEME = "powerlevel9k/powerlevel9k" ]; then
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+    POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="\U2570\U2500 $ "
+    POWERLEVEL9K_DIR_HOME_BACKGROUND="cyan"
+    POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="magenta"
+    POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='121'
+    POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
+fi
+
+if [ $ZSH_THEME = "powerline" ]; then
+    POWERLINE_NO_BLANK_LINE="false"
+    POWERLINE_PATH="short"
+fi
 #JAVA
 
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms128m -Xmx4096m"

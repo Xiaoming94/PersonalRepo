@@ -41,26 +41,25 @@ else
 end
 
 if awful.util.file_readable(config .. "/lain/init.lua") then
-    theme.useless_gap_width  = "10"
+    theme.useless_gap_width  = "8"
     theme.lain_icons = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
 end
 --}}}
 
 theme.font          = "DejaVu Mono 8"
-
-theme.bg_normal     = "#08111dBD" --"#242424" --"#000f02" -- #222222
-theme.bg_focus      = "#3d438f" -- "#094766" -- #535d6c
+theme.bg_normal     = "#1a1a1aDD" --"#242424" --"#000f02" -- #222222
+theme.bg_focus      = "#29446d" -- "#094766" -- #535d6c
 theme.bg_urgent     = "#9C96D6"
 theme.bg_minimize   = "#222847BD"
 
-theme.fg_normal     = "#4974f5"
+theme.fg_normal     = "#7aa2d1"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#cf3c3c"
 theme.fg_minimize   = "#9a9a9a"
 
 theme.border_width  = "1"
-theme.border_normal = "#343455"
-theme.border_focus  = "#363da8" -- #535d6c
+theme.border_normal = "#212121"
+theme.border_focus  = "#486389" -- #535d6c
 theme.border_marked = "#91231c"
 
 

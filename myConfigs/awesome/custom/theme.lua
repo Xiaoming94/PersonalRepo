@@ -41,7 +41,7 @@ else
 end
 
 if awful.util.file_readable(config .. "/lain/init.lua") then
-    theme.useless_gap_width  = "5"
+    theme.useless_gap_width  = "10"
 end
 --}}}
 
@@ -58,7 +58,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
-theme.border_normal = "#242424"
+theme.border_normal = "#212121"
 theme.border_focus  = "#094766" -- #535d6c
 theme.border_marked = "#91231c"
 

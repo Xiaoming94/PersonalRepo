@@ -46,7 +46,7 @@ if awful.util.file_readable(config .. "/lain/init.lua") then
 end
 --}}}
 
-theme.font          = "ProggyCleanTTSZ 9"
+theme.font          = "ProggyCleanTTSZ 11"
 
 theme.bg_normal     = "#000000" --"#242424" --"#000f02" -- #222222
 theme.bg_focus      = "#24359b" -- "#094766" -- #535d6c
@@ -59,7 +59,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
-theme.border_normal = "#c1c1c1"
+theme.border_normal = "#212121"
 theme.border_focus  = "#24359b" -- #535d6c
 theme.border_marked = "#91231c"
 

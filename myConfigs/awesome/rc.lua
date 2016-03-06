@@ -4,6 +4,7 @@ local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
+require("eminent")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -12,6 +13,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local lain = require ("lain")
 lain.widgets.terminal = "urxvt"
+-- For Menus
+local xdg_menu = require("archmenu")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -59,12 +62,14 @@ home = terminal .. " -e ranger"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
---    awful.layout.suit.tile,
-    lain.layout.uselesstile,
---    awful.layout.suit.tile.bottom,
-    lain.layout.uselesstile.bottom,
-    lain.layout.uselessfair,
-    lain.layout.uselessfair.horizontal,
+    awful.layout.suit.tile,
+--    lain.layout.uselesstile,
+    awful.layout.suit.tile.bottom,
+--    lain.layout.uselesstile.bottom,
+--    lain.layout.uselessfair,
+--    lain.layout.uselessfair.horizontal,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
@@ -85,7 +90,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "main","web","dev","chat","music","misc" }, s, layouts[1])
+    tags[s] = awful.tag({"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","IXV"}, s, layouts[1])
 end
 -- }}}
 
@@ -99,6 +104,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Applications", xdgmenu },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -293,7 +299,7 @@ for s = 1, screen.count() do
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end))
     )
 	-- Create a taglist widgets
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.noempty, mytaglist.buttons)
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
@@ -398,6 +404,7 @@ globalkeys = awful.util.table.join(
     awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
     awful.key({modkey,            }, "b", function() mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
  end),
+    awful.key({modkey, alt },   "l", function() awful.util.spawn("xflock4") end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
@@ -519,15 +526,15 @@ awful.rules.rules = {
     { rule = { class = "Florence" },
      properties = { floating = true,
 				border_width = 0,
-				focus = false } },
-    { rule = { class = "Google-chrome-stable"},
-     properties = { tag = tags[1][2] } },
-    { rule = { class = "Chromium"},
-     properties = { tag = tags[1][2] } },
-    { rule = { class = "Skype"},
-     properties = { tag = tags[1][4] } },
-    { rule = { class = "Spotify"}, 
-     properties = { tag = tags[1][5] } }
+				focus = false } }
+   -- { rule = { class = "google-chrome"},
+   --  properties = { tag = tags[1][2] } },
+  --  { rule = { class = "Chromium"},
+  --   properties = { tag = tags[1][2] } },
+  --  { rule = { class = "Skype"},
+  --   properties = { tag = tags[1][4] } },
+  --  { rule = { class = "Spotify"}, 
+  --   properties = { tag = tags[1][5] } }
 }
 -- }}}
 
@@ -615,4 +622,5 @@ client.connect_signal("focus",
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.util.spawn_with_shell("~/bin/myscripts/awesomestartup")
+-- awful.util.spawn_with_shell("~/bin/myscripts/awesomestartup")
+awful.util.spawn_with_shell("pkill xfce4-notifyd") -- THere has to be a better solution

@@ -14,7 +14,7 @@ local menubar = require("menubar")
 local lain = require ("lain")
 lain.widgets.terminal = "urxvt"
 -- For Menus
-local xdg_menu = require("archmenu")
+--local xdg_menu = require("archmenu")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -42,9 +42,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/custom/theme.lua")
+beautiful.init("/usr/share/awesome/themes/xiaoming-dark/theme.lua")
 -- This is used later as the default terminal and editor to run.
-web = "chromium-touch"
+web = "chromium --high-dpi-support=0 --force-device-scale-factor=0.5"
 mail = "evolution"
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
@@ -104,7 +104,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Applications", xdgmenu },
+                                   -- { "Applications", xdgmenu },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -402,7 +402,7 @@ globalkeys = awful.util.table.join(
     awful.key({ },  "Print",                  function () awful.util.spawn_with_shell("scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png") end),
     awful.key({ alt,    "Shift"   }, "m",     function () awful.util.spawn(mail) end),
     awful.key({ alt, "Shift" },   "f",     function () awful.util.spawn(home) end),
-    awful.key({modkey,            }, "b", function() mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+    awful.key({modkey,            }, "b", function() mywibox[1].visible = not mywibox[1].visible
  end),
     awful.key({modkey, alt },   "l", function() awful.util.spawn("xflock4") end),
     -- Prompt
@@ -621,6 +621,5 @@ client.connect_signal("focus",
 	end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- awful.util.spawn_with_shell("~/bin/myscripts/awesomestartup")
+awful.util.spawn_with_shell("~/bin/myscripts/awesomestartup")
 awful.util.spawn_with_shell("pkill xfce4-notifyd") -- THere has to be a better solution

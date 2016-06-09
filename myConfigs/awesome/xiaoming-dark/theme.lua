@@ -41,7 +41,7 @@ else
 end
 
 if awful.util.file_readable(config .. "/lain/init.lua") then
-    theme.useless_gap_width  = "8"
+    theme.useless_gap_width  = "12"
     theme.lain_icons = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
 end
 --}}}

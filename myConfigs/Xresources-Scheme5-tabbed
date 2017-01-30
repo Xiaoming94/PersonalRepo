@@ -1,0 +1,70 @@
+! XTerm
+
+XTerm*faceName: inconsolata:size=12:pixelsize:1
+XTerm*font: 7x13
+
+! For URXVT
+
+URxvt.depth: 32
+URxvt.geometry: 95x30
+URxvt.scrollBar_right: true
+URxvt.font: xft:Inconsolata for Powerline:pixelsize=15, xft:Symbola:size=8, xft:WenQuanYi Bitmap Song:size=8, xft:Unifont:pixelsize=15
+URxvt.letterSpace: 0
+URxvt.scrollstyle: plain
+URxvt.scrollColor: darkgray
+URxvt.scrollBar: false
+URxvt.termName: rxvt-256color
+URxvt*transpscrollbar: true
+URxvt.cursorBlink: true
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard,matcher,tabbed
+! Tabs
+URxvt.tabbed.tabbar-fg: 0
+URxvt.tabbed.tabbar-bg: 9
+URxvt.tabbed.tab-fg: 8
+URxvt.tabbed.tab-bg: 5
+URxvt.url-launcher: /usr/bin/vivaldi-stable
+URxvt.matcher.button: 1
+URxvt.blurRadius: 5
+
+! special
+XTerm*background: #1e1e1e
+URxvt.background: [60]#000000
+URxvt.foreground: #c3d5f2
+! special
+*.foreground:   #f2f2f2
+!*.background:   #242424
+*.cursorColor:  #f2f2f2
+
+! black
+*.color0:       #02030b
+*.color8:       #1f1f24
+
+! red
+*.color1:       #8c1e30
+*.color9:       #f71740
+
+! green
+*.color2:       #158c49
+*.color10:      #48e841
+
+! yellow
+*.color3:       #e0c224
+*.color11:      #eff946
+
+! blue
+*.color4:       #2348e0
+*.color12:      #668cf6
+
+! magenta
+*.color5:       #d644bb
+*.color13:      #ff54f8
+
+! cyan
+*.color6:       #09cdda
+*.color14:      #6efff0
+
+! white
+*.color7:       #a9aeb0
+*.color15:      #ffffff

@@ -1,0 +1,72 @@
+! XTerm
+
+XTerm*faceName: inconsolata:size=12:pixelsize:1
+XTerm*font: 7x13
+
+! For URXVT
+
+URxvt.depth: 32
+URxvt.geometry: 95x40
+URxvt.scrollBar_right: true
+URxvt.font: xft:Inconsolata Awesome-11, xft:Symbola:size=11, xft:WenQuanYi Micro Hei Mono:antialias=true, xft:Unifont:pixelsize=12
+!URxvt.font: xft:Inconsolata Awesome:pixelsize=14:size=13
+URxvt.letterSpace: 1
+URxvt.lineSpace: 0.5
+URxvt.scrollstyle: plain
+URxvt.scrollColor: darkgray
+URxvt.scrollBar: false
+URxvt.termName: rxvt-256color
+URxvt*transpscrollbar: true
+URxvt.cursorBlink: true
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard,matcher
+! Tabs
+URxvt.tabbed.tabbar-fg: 10
+URxvt.tabbed.tabbar-bg: 8
+URxvt.tabbed.tab-fg: 15
+URxvt.tabbed.tab-bg: 4
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+URxvt.blurRadius: 5
+
+! special
+XTerm*background: #1e1e1e
+URxvt.background: [100]#242526
+URxvt.foreground: #c3d5f2
+
+*.foreground:   #cfd8dc
+!*.background:   #111619
+*.cursorColor:  #cfd8dc
+
+! black
+*.color0:       #000000
+*.color8:       #263238
+
+! red
+*.color1:       #b71c1c
+*.color9:       #f44336
+
+! green
+*.color2:       #388e3c
+*.color10:      #64dd17
+
+! yellow
+*.color3:       #ffd600
+*.color11:      #ffee58
+
+! blue
+*.color4:       #1e88e5
+*.color12:      #40c4ff
+
+! magenta
+*.color5:       #d81b60
+*.color13:      #f06292
+
+! cyan
+*.color6:       #00bcd4
+*.color14:      #18ffff
+
+! white
+*.color7:       #b0bec5
+*.color15:      #ffffff

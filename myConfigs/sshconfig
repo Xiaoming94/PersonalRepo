@@ -1,0 +1,43 @@
+## Chalmers
+
+Host hubben
+    HostName cantina.chalmers.it
+    User henryy
+    Port 22
+
+Host chalmers
+    HostName remote11.chalmers.se
+    User henryy
+    Port 22
+
+#################
+## digIT hosts ##
+#################
+
+Host cantina dantooine deathstar hoth kamino korriban mustafar naboo tatooine vulcan
+    User henryy
+
+Host coruscant jedha pimcpi yavin
+    User digit-local
+
+Host bardatorn
+    User digit
+
+Host cantina mustafar
+    HostName %h.chalmers.it
+    ForwardAgent Yes
+
+Host bardatorn courscant antooine deathstar hoth jedha kamino korriban naboo pimcpi tatooine vulcan yavin
+    ProxyCommand ssh mustafar -W %h:%p 2> /dev/null
+    ForwardAgent yes
+
+Host galaxy
+    User root
+    ProxyCommand ssh mustafar -W 10.0.0.10:%p 2> /dev/null
+
+## Yggdrasil Home Server
+
+Host yggdrasil
+    user xiaoming
+    HostName yggdrasil.xiaoming.se
+    port 22

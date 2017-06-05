@@ -18,9 +18,9 @@ URxvt.scrollBar: false
 URxvt.termName: rxvt-256color
 URxvt*transpscrollbar: true
 URxvt.cursorBlink: true
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
 URxvt.iso14755: False
-URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.perl-ext-common: default,matcher
 ! Tabs
 URxvt.tabbed.tabbar-fg: 10
 URxvt.tabbed.tabbar-bg: 8
@@ -30,6 +30,11 @@ URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 URxvt.blurRadius: 5
 
+!keybindings
+URxvt.keysym.C-M-c: builtin-string:
+URxvt.keysym.C-M-v: builtin-string:
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 ! special
 XTerm*background: #1e1e1e
 URxvt.background: [100]#161720

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+COLORS=(red blue cyan magenta white green yellow)
+randi=$((RANDOM % 7))
+randcolor=${COLORS[$randi]}
+
+archey3 -c $randcolor
+

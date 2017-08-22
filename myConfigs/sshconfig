@@ -39,5 +39,10 @@ Host galaxy
 
 Host yggdrasil
     user xiaoming
+
+Host yggdrasil-lxcadmin
+	user lxcadmin
+
+Host yggdrasil yggdrasil-lxcadmin
     HostName yggdrasil.xiaoming.se
     port 22

@@ -218,13 +218,15 @@ assign [class="Slack"] $ws4
 bar {
 		mode dock
 		position top
-        status_command i3blocks
+        status_command ~/.config/i3/i3_conky.sh
 
 		#Systray
 		
 		tray_padding 2
-		separator_symbol ""
-		#colors
+#		separator_symbol "::"
+        separator_symbol "  "
+		
+        #colors
 		
 		colors {
 			background #161720
@@ -246,7 +248,7 @@ exec_always feh --bg-scale ~/.config/i3/background.jpg
 
 smart_borders on
 smart_gaps on
-gaps inner 10
+gaps inner 0
 gaps outer 0
 
 # Workspaces

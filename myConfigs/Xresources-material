@@ -1,3 +1,9 @@
+!XFT
+
+Xft.autohint: true
+Xft.dpi: 96
+Xft.antialias: true
+
 ! XTerm
 
 XTerm*faceName: inconsolata:size=12:pixelsize:1
@@ -42,7 +48,7 @@ URxvt.foreground: #c3d5f2
 
 ! special
 *.foreground:   #cfd8dc
-!*.background:   #111619
+*.background:   #161720
 *.cursorColor:  #cfd8dc
 
 ! black

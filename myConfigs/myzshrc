@@ -17,6 +17,8 @@ alias grep='grep --color=auto --exclude-dir=.cvs --exclude-dir=.git --exclude-di
 alias våldta='sudo !!'
 alias screenshot='scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png'
 alias i3config='vim ~/.config/i3/config'
+alias initrbenv='eval "$(rbenv init -)"'
+alias matlab='~/bin/myscripts/matlab -nosplash -nodesktop'
 
 # Exports, Defining exports and variables
 
@@ -24,6 +26,7 @@ alias i3config='vim ~/.config/i3/config'
 export EDITOR=vim
 export PATH=$PATH:~/bin
 export PATH=$PATH:/home/xiaoming/bin/myscripts:/opt/bin/kf5:/home/xiaoming/.gem/ruby/2.3.0/bin/
+export PATH=$PATH:/home/xiaoming/.gem/ruby/2.4.0/bin/
 export PE_DIR=/home/xiaoming/Documents/ProgrammingExercises/
 
 export GTK_IM_MODULE=ibus
@@ -32,6 +35,8 @@ export QT_IM_MODULE=ibus
 export TERM=xterm-256color
 
 export QT_QPA_PLATFORMTHEME=gtk2
+
+export LD_LIBRARY_PATH=/opt/cuda/lib64
 
 unset GREP_OPTIONS
 

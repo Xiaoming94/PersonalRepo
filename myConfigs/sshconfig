@@ -23,17 +23,17 @@ Host coruscant jedha pimcpi yavin
 Host bardatorn
     User digit
 
-Host cantina mustafar
+Host cantina
     HostName %h.chalmers.it
     ForwardAgent Yes
 
-Host bardatorn courscant antooine deathstar hoth jedha kamino korriban naboo pimcpi tatooine vulcan yavin
-    ProxyCommand ssh mustafar -W %h:%p 2> /dev/null
+Host bardatorn courscant antooine deathstar hoth jedha kamino korriban naboo pimcpi tatooine vulcan yavin mustafar
+    ProxyCommand ssh cantina -W %h:%p 2> /dev/null
     ForwardAgent yes
 
 Host galaxy
     User root
-    ProxyCommand ssh mustafar -W 10.0.0.10:%p 2> /dev/null
+    ProxyCommand ssh cantina -W 10.0.0.10:%p 2> /dev/null
 
 ## Yggdrasil Home Server
 

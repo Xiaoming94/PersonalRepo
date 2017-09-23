@@ -49,18 +49,19 @@ set_from_resource $white2      color15 #ffffff
 
 # Window borders and colors
 new_window pixel 1
+new_float normal 2
 
 # Class                 border      backgr.     text         indicator child_border
 
-client.focused          $background $black2     $cyan1       $magenta1 $cyan1
-client.focused_inactive $background $background $cyan1       $white1   $black2
-client.unfocused        $background $background $cyan2       $magenta2 $black2
+client.focused          $background $black2     $green2      $green1   $green2
+client.focused_inactive $background $background $white1      $white1   $black2
+client.unfocused        $background $background $white1      $magenta2 $black2
 
 #smart_borders on
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below
 font pango:FontAwesome 10.
-font pango:xos4 Terminess Powerline 10
+font pango:xos4 Terminess Powerline 11.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -233,7 +234,8 @@ bindsym $mod+r mode "resize"
 assign [class="Chromium"] $ws2
 assign [class="KeePass2"] $ws6
 assign [class="Slack"] $ws4
-for_window [class="MATLAB R2017a - academic use"] floating enable
+for_window [class="MATLAB R2017a - academic use"] floating enable border normal 2
+for_window [class="Tk"] floating enable border normal 2
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -258,7 +260,7 @@ bar {
 
 			# Workspace Buttons
 			# Class            border      background     #text
-			focused_workspace  $background $background    $cyan2
+			focused_workspace  $background $background    $green2
 			active_workspace   $background $background    $black2
 			inactive_workspace $background $background    $white1
 			urgent_workspace   $background $background    $red1
@@ -272,7 +274,7 @@ exec_always feh --bg-scale ~/.config/i3/background.jpg
 
 smart_borders on
 smart_gaps on
-gaps inner 15
+gaps inner 0
 gaps outer 0
 
 # Workspaces

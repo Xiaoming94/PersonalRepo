@@ -43,7 +43,7 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 ! special
 XTerm*background: #1e1e1e
-URxvt.background: [80]#000000
+URxvt.background: [100]#161720
 URxvt.foreground: #c3d5f2
 
 ! special
@@ -53,36 +53,35 @@ URxvt.foreground: #c3d5f2
 
 ! black
 *.color0:       #000000
-*.color8:       #263238
+*.color8:       #314651
 
 ! red
-*.color1:       #b71c1c
+*.color1:       #be0b24
 *.color9:       #f44336
 
 ! green
-*.color2:       #00c853
-*.color10:      #64dd17
+*.color2:       #0dca3c
+*.color10:      #75f635
 
 ! yellow
-*.color3:       #ffd600
-*.color11:      #ffee58
+*.color3:       #ffeb00
+*.color11:      #f2e46e
 
 ! blue
-*.color4:       #2962ff
-*.color12:      #4fc3f7
+*.color4:       #1631eb
+*.color12:      #3da5fb
 
 ! magenta
-*.color5:       #d81b60
-*.color13:      #f06292
+*.color5:       #fe0299
+*.color13:      #f062c7
 
 ! cyan
-*.color6:       #00bcd4
-*.color14:      #18ffff
+*.color6:       #0099a0
+*.color14:      #00f8d7
 
 ! white
-*.color7:       #b0bec5
+*.color7:       #9591ba
 *.color15:      #ffffff
-
 
 !rofi
 

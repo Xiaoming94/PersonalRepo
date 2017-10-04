@@ -1,8 +1,11 @@
 !XFT
-
-Xft.autohint: true
+Xft.lcdfilter: default
 Xft.dpi: 96
 Xft.antialias: true
+Xft.rgba:     rgb
+Xft.autohint: false
+Xft.hinting: true
+Xft.hintstyle: hintslight
 
 ! XTerm
 
@@ -14,9 +17,13 @@ XTerm*font: 7x13
 URxvt.depth: 32
 URxvt.geometry: 95x40
 URxvt.scrollBar_right: true
-URxvt.font: xft:Inconsolata Awesome-13:pixelsize=17,  xft:FontAwesome:style=Regular,xft:Symbola:size=11, xft:AR PL UMing CN, xft:Unifont:pixelsize=12
+URxvt.font: xft:Droid Sans Mono Awesome-11:style=Regular:pixelsize=12 \
+            xft:FontAwesome:style=Regular
+            xft:Symbola:size=11 \
+            xft:AR PL UMing CN \
+            xft:Unifont:pixelsize=12
 !URxvt.font: xft:Inconsolata Awesome:pixelsize=14:size=13
-URxvt.letterSpace: 1
+URxvt.letterSpace: 2
 URxvt.lineSpace: 1
 URxvt.scrollstyle: plain
 URxvt.scrollColor: darkgray
@@ -116,7 +123,7 @@ rofi.bw:                             0.5
 ! "Always show number of lines" Set from: Default
 ! rofi.fixed-num-lines:                true
 ! "Terminal to use" Set from: Default
-! rofi.terminal:                       rofi-sensible-terminal
+rofi.terminal:                       termite
 ! "Ssh client to use" Set from: Default
 ! rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default

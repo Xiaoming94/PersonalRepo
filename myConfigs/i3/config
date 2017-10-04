@@ -13,6 +13,7 @@
 
 set $mod Mod4
 set $alt Mod1
+set $term termite
 
 # Workspaces
 set $ws1 "1:"
@@ -54,8 +55,8 @@ new_float normal 2
 # Class                 border      backgr.     text         indicator child_border
 
 client.focused          $background $black2     $green2      $green1   $green2
-client.focused_inactive $background $background $white1      $white1   $black2
-client.unfocused        $background $background $white1      $magenta2 $black2
+client.focused_inactive $background $background $white1      $white1   $black1
+client.unfocused        $background $background $white1      $magenta2 $black1
 
 #smart_borders on
 # Font for window titles. Will also be used by the bar unless a different font
@@ -77,7 +78,7 @@ font pango:xos4 Terminess Powerline 11.
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -129,7 +130,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle; exec setborder
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -270,7 +271,6 @@ bar {
 exec --no-startup-id ~/bin/myscripts/i3startup
 exec --no-startup-id dunst
 exec_always feh --bg-scale ~/.config/i3/background.jpg
-
 
 smart_borders on
 smart_gaps on

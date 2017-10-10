@@ -17,13 +17,9 @@ XTerm*font: 7x13
 URxvt.depth: 32
 URxvt.geometry: 95x40
 URxvt.scrollBar_right: true
-URxvt.font: xft:Droid Sans Mono Awesome-11:style=Regular:pixelsize=12 \
-            xft:FontAwesome:style=Regular
-            xft:Symbola:size=11 \
-            xft:AR PL UMing CN \
-            xft:Unifont:pixelsize=12
+URxvt.font: xft:Inconsolata for Powerline-13:style=Medium:pixelsize=17,xft:FontAwesome:style=Regular,xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=12
 !URxvt.font: xft:Inconsolata Awesome:pixelsize=14:size=13
-URxvt.letterSpace: 2
+URxvt.letterSpace: 1
 URxvt.lineSpace: 1
 URxvt.scrollstyle: plain
 URxvt.scrollColor: darkgray
@@ -50,12 +46,12 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 ! special
 XTerm*background: #1e1e1e
-URxvt.background: [100]#161720
+URxvt.background: [100]#0d222a
 URxvt.foreground: #c3d5f2
 
 ! special
 *.foreground:   #cfd8dc
-*.background:   #161720
+*.background:   #0d222a
 *.cursorColor:  #cfd8dc
 
 ! black

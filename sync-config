@@ -1,0 +1,13 @@
+#!/bin/bash
+
+current_date=$(date +"%F|%T")
+
+echo "Syncronising config files"
+git add ./myConfigs/
+
+git commit -m "Sync Config files $current_date"
+git commit --amend
+
+git push
+
+echo "Config files syncronised"

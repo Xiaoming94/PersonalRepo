@@ -37,12 +37,12 @@ Host galaxy
 
 ## Yggdrasil Home Server
 
-Host yggdrasil
+Host samsara
     user xiaoming
 
-Host yggdrasil-lxcadmin
+Host samsara-lxcadmin
 	user lxcadmin
 
-Host yggdrasil yggdrasil-lxcadmin
-    HostName yggdrasil.xiaoming.se
+Host samsara samsara-lxcadmin
+    HostName samsara.xiaoming.se
     port 22

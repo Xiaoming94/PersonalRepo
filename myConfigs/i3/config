@@ -182,7 +182,7 @@ bindsym $mod+Control+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # Lock screen
 
-bindsym $mod+$alt+l exec slock
+bindsym $mod+$alt+l exec "slock || i3lock --c 000000 -n"
 
 # Some Custom Keybindings
 

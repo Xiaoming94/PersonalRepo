@@ -7,7 +7,8 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Anonymous Pro for Powerline
+font = Inconsolata for Powerline 13
+
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -36,7 +37,7 @@ filter_unmatched_urls = true
 #cursor_foreground = #dcdccc
 foreground = #dcdccc
 foreground_bold = #ffffff
-background = #0d222a
+background = rgba(13,34,42,1.0)
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)

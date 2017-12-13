@@ -14,7 +14,7 @@
 set $mod Mod4
 set $alt Mod1
 set $term termite 
-set $web firefox
+set $web "env GTK_THEME=Materia firefox"
 
 # Workspaces
 set $ws1 "1:"
@@ -85,7 +85,8 @@ bindsym $mod+Shift+Return exec $term
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+p exec --no-startup-id rofi -show drun
 bindsym $mod+aring exec rofi -show window
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -244,6 +245,9 @@ for_window [class="Tk"] floating enable border normal 2
 #bar {
 #	i3bar_command python /usr/lib/python3.6/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --i3
 #}
+
+set $barbg	#0d222a
+
 bar {
 		mode dock
 		position top
@@ -253,20 +257,20 @@ bar {
 		
 		tray_padding 2
 #		separator_symbol "::"
-        separator_symbol "  "
+        separator_symbol "|"
 		
         #colors
 		
 		colors {
-			background $background
+			background $barbg
 			statusline $cyan2
 
 			# Workspace Buttons
-			# Class            border      background     #text
-			focused_workspace  $background $background    $green2
-			active_workspace   $background $background    $black2
-			inactive_workspace $background $background    $white1
-			urgent_workspace   $background $background    $red1
+			# Class            border      barbg     #text
+			focused_workspace  $barbg $barbg    $green2
+			active_workspace   $barbg $barbg    $black2
+			inactive_workspace $barbg $barbg    $white1
+			urgent_workspace   $barbg $barbg    $red1
 		}
 }
 

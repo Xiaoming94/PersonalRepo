@@ -17,7 +17,7 @@ XTerm*font: 7x13
 URxvt.depth: 32
 URxvt.geometry: 95x40
 URxvt.scrollBar_right: true
-URxvt.font: xft:Inconsolata Awesome-13:style=Medium:pixelsize=17,xft:FontAwesome-13:style=Regular,xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=12
+URxvt.font: xft:Droid Sans Mono Slashed for Powerline:pixelsize=14,xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=12
 !URxvt.font: xft:Inconsolata Awesome:pixelsize=14:size=13
 URxvt.letterSpace: 0
 URxvt.lineSpace: 1

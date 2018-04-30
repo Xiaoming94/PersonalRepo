@@ -1,15 +1,21 @@
 let g:airline_theme='base16_colors'
 
 colorscheme molokai
-"set expandtab
+
+set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set nospell
 
-set noexpandtab
+"set noexpandtab
 
 syntax on
 
+"Set bunch of syntaxes
+
+autocmd BufNewFile,BufRead *.exs	set syntax=elixir
+
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+

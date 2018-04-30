@@ -5,25 +5,25 @@ rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
 rofi.width:                          48
 ! "Number of lines" Set from: Default
-rofi.lines:                          32
+rofi.lines:                          20
 ! "Number of columns" Set from: Default
 rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           xos4 Terminus 10
+rofi.font:                           xos4 Terminus 12
 ! "Color scheme for normal row" Set from: Default
-rofi.color-normal:                   #263238,#cfd8dc,#37474f,#1e88e5,#ffffff
+rofi.color-normal:                   argb:22000000,#cfd8dc,argb:ef0d222a,#555555,scheme_c2
 ! "Color scheme for urgent row" Set from: Default
-rofi.color-urgent:                   #b71c1c,#cfd8dc,#b71c1c,#1e88e5,#ffffff
+rofi.color-urgent:                   scheme_c5,#cfd8dc,#b71c1c,#555555,scheme_c2
 ! "Color scheme for active row" Set from: Default
-rofi.color-active:                   #263238,#64dd17,#37474f,#1e88e5,#ffffff
+rofi.color-active:                   scheme_c8,#64dd17,#37474f,#555555,scheme_c12
 ! "Color scheme window" Set from: Default
-rofi.color-window:                   #121420,#ffffff
+rofi.color-window:                   argb:dd010210,fg_color
 ! "Border width" Set from: Default
 rofi.bw:                             0.5
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
-rofi.padding:                        20
+rofi.padding:                        50
 ! "Y-offset relative to location" Set from: Default
 ! rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: Default
@@ -73,15 +73,15 @@ rofi.terminal:                       termite
 ! "Margin between rows" Set from: Default
 ! rofi.line-margin:                    2
 ! "Padding within rows" Set from: Default
-! rofi.line-padding:                   1
+ rofi.line-padding:                   5
 ! "Pre-set filter" Set from: Default
 ! rofi.filter:                         
 ! "Separator style (none, dash, solid)" Set from: Default
-! rofi.separator-style:                dash
+rofi.separator-style:                solid
 ! "Hide scroll-bar" Set from: Default
 rofi.hide-scrollbar:                 true
 ! "Fullscreen" Set from: Default
-! rofi.fullscreen:                     false
+rofi.fullscreen:                     false
 ! "Fake transparency" Set from: Default
 ! rofi.fake-transparency:              false
 ! "DPI" Set from: Default

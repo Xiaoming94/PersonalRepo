@@ -1,36 +1,74 @@
+#define fg_color  #cfd8dc
+#define bg_color  #0d222a
+#define cursor_c  #cfd8dc
+
+
+#define scheme_c0 #000000
+#define scheme_c8 #314651
+
+
+#define scheme_c1 #be0b24
+#define scheme_c9 #f44336
+
+
+#define scheme_c2 #0dca3c
+#define scheme_c10 #75f635
+
+
+#define scheme_c3 #ffeb00
+#define scheme_c11 #f2e46e
+
+
+#define scheme_c4 #1631eb
+#define scheme_c12 #3da5fb
+
+
+#define scheme_c5 #fe0299
+#define scheme_c13 #f062c7
+
+
+#define scheme_c6 #0099a0
+#define scheme_c14 #00f8d7
+
+
+#define scheme_c7 #9591ba
+#define scheme_c15 #ffffff
+
+
+
 ! special
-*.foreground:   #cfd8dc
-*.background:   #0d222a
-*.cursorColor:  #cfd8dc
+*.foreground:   fg_color
+*.background:   bg_color
+*.cursorColor:  cursor_c
 
 ! black
-*.color0:       #000000
-*.color8:       #314651
+*.color0:       scheme_c0
+*.color8:       scheme_c8
 
 ! red
-*.color1:       #be0b24
-*.color9:       #f44336
+*.color1:       scheme_c1
+*.color9:       scheme_c9
 
 ! green
-*.color2:       #0dca3c
-*.color10:      #75f635
+*.color2:       scheme_c2
+*.color10:      scheme_c10
 
 ! yellow
-*.color3:       #ffeb00
-*.color11:      #f2e46e
+*.color3:       scheme_c3
+*.color11:      scheme_c11
 
 ! blue
-*.color4:       #1631eb
-*.color12:      #3da5fb
+*.color4:       scheme_c4
+*.color12:      scheme_c12
 
 ! magenta
-*.color5:       #fe0299
-*.color13:      #f062c7
+*.color5:       scheme_c5
+*.color13:      scheme_c13
 
 ! cyan
-*.color6:       #0099a0
-*.color14:      #00f8d7
+*.color6:       scheme_c6
+*.color14:      scheme_c14
 
 ! white
-*.color7:       #9591ba
-*.color15:      #ffffff
+*.color7:       scheme_c7
+*.color15:      scheme_c15

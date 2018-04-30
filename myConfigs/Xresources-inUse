@@ -23,14 +23,18 @@ XTerm*font: 7x13
 URxvt.depth: 32
 URxvt.geometry: 95x40
 URxvt.scrollBar_right: true
-URxvt.font: xft:Droid Sans Mono Slashed for Powerline:pixelsize=14,xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=12
+URxvt.font: xft:RobotoMono Nerd Font Mono:pixelsize=13:antialias=true,\
+	xft:Noto Mono:pixelsize=13,\
+	xft:Noto Emoji,\
+	xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=13,\
+	9x13
 !URxvt.font: xft:Inconsolata Awesome:pixelsize=14:size=13
-URxvt.letterSpace: 0
+URxvt.letterSpace: 1
 URxvt.lineSpace: 1
 URxvt.scrollstyle: plain
 URxvt.scrollColor: darkgray
 URxvt.scrollBar: false
-URxvt.termName: rxvt-256color
+URxvt.termName: rxvt-unicode-256color
 URxvt*transpscrollbar: true
 URxvt.cursorBlink: true
 
@@ -41,7 +45,7 @@ URxvt.tabbed.tabbar-fg: 10
 URxvt.tabbed.tabbar-bg: 8
 URxvt.tabbed.tab-fg: 15
 URxvt.tabbed.tab-bg: 4
-URxvt.url-launcher: /usr/bin/chromium
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 URxvt.blurRadius: 5
 

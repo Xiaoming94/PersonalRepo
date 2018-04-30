@@ -7,12 +7,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Roboto Mono for Powerline 12
+font = RobotoMono Nerd Font Mono 10
 
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 800x600
+geometry = 1024x728
 
 # "system", "on" or "off"
 cursor_blink = system
@@ -37,7 +37,7 @@ filter_unmatched_urls = true
 #cursor_foreground = #dcdccc
 foreground = #dcdccc
 foreground_bold = #ffffff
-background = rgba(13,34,42,1.0)
+background = rgba(13,34,42,1)
 
 #background = rgba(0,0,0,0.5)
 # 20% background transparency (requires a compositor)

@@ -37,12 +37,14 @@ Host galaxy
 
 ## Yggdrasil Home Server
 
-Host samsara
+Host samsara lotus
     user xiaoming
 
-Host samsara-lxcadmin
-	user lxcadmin
+Host samsara
+	ProxyCommand ssh lotus -W 192.168.0.100:%p 2> /dev/null
+	ForwardAgent yes
 
-Host samsara samsara-lxcadmin
-    HostName samsara.xiaoming.se
-    port 22
+host lotus
+	HostName remoted.xiaoming.se
+	port 22
+

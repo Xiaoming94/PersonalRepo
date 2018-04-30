@@ -19,7 +19,7 @@ alias screenshot='scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png'
 alias i3config='vim ~/.config/i3/config'
 alias initrbenv='eval "$(rbenv init -)"'
 alias matlab='~/bin/myscripts/matlab -nosplash -nodesktop'
-
+alias sysupg='pacaur -Syu --noedit --noconfirm'
 # Exports, Defining exports and variables
 
 

@@ -17,7 +17,7 @@ else
 	ibus-daemon -d -r -x -n awesome &
 	mpd &
 #	volumeicon &
-	xfce4-power-manager &
+#	xfce4-power-manager &
 #	xcompmgr -r 0 -o 0 -D 5 -cfF &
 	udiskie &
 	compton -b
@@ -29,5 +29,6 @@ else
 #	skype &
 	#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 8 --transparent true --alpha 0 --tint 0x000000 --height 16 &
 
+xss-lock -- /usr/bin/local/slock &
 fi
 xrdb ~/.Xresources

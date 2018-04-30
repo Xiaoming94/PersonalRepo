@@ -204,8 +204,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym XF86AudioMute exec pulseaudio-ctl mute
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up 5
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -fps 60 -dec 5
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -fps 60 -inc 5
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -fps 60 -dec 5
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -fps 60 -inc 5
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -281,7 +281,6 @@ bar {
 exec --no-startup-id ~/bin/myscripts/i3startup
 exec --no-startup-id dunst
 exec --no-startup-id redshift-gtk
-exec --no-startup-id xss-lock -- slock
 exec_always feh --bg-scale -0-0 ~/.config/i3/Wallpaper.png 
 
 

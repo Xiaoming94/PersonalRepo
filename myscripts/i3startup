@@ -17,11 +17,13 @@ else
 	ibus-daemon -d -r -x -n awesome &
 	mpd &
 #	volumeicon &
-#	xfce4-power-manager &
+	xfce4-power-manager &
 #	xcompmgr -r 0 -o 0 -D 5 -cfF &
 	udiskie &
 	compton -b
     pasystray -a &
+    nextcloud &
+    dropbox &
 #	cairo-compmgr &
 #	pcmanfm -d &
 #	skype &

@@ -198,7 +198,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+Control+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'killall xss-lock && i3-msg exit'"
 
 # Volume and Brightness
 bindsym XF86AudioMute exec pulseaudio-ctl mute
@@ -281,6 +281,7 @@ bar {
 exec --no-startup-id ~/bin/myscripts/i3startup
 exec --no-startup-id dunst
 exec --no-startup-id redshift-gtk
+exec --no-startup-id xss-lock -- slock 
 exec_always feh --bg-scale -0-0 ~/.config/i3/Wallpaper.png 
 
 

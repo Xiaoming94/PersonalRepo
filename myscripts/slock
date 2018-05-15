@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z $DESKTOP_SESSION ] || [ "$DESKTOP_SESSION"="i3" ]; then
+
+	scrot /tmp/screenshot.png
+	convert /tmp/screenshot.png -scale 5% -scale 2000% /tmp/scaled.png
+	convert /tmp/scaled.png ~/lock.png -gravity center -composite -matte /tmp/background.png
+	i3lock -i /tmp/background.png -n
+
+fi

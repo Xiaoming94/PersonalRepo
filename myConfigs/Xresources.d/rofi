@@ -9,7 +9,7 @@ rofi.lines:                          20
 ! "Number of columns" Set from: Default
 rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           xos4 Terminus 12
+rofi.font:                           xos4 Terminus 14
 ! "Color scheme for normal row" Set from: Default
 rofi.color-normal:                   argb:22000000,#cfd8dc,argb:ef0d222a,#555555,scheme_c2
 ! "Color scheme for urgent row" Set from: Default

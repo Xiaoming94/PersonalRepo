@@ -23,7 +23,7 @@ XTerm*font: 7x13
 URxvt.depth: 32
 URxvt.geometry: 95x40
 URxvt.scrollBar_right: true
-URxvt.font: xft:RobotoMono Nerd Font Mono:pixelsize=14:antialias=true,\
+URxvt.font: xft:RobotoMono Nerd Font Mono:pixelsize=15:antialias=true,\
 	xft:Noto Mono:pixelsize=13,\
 	xft:Noto Emoji,\
 	xft:Symbola:size=11,xft:AR PL UMing CN,xft:Unifont:pixelsize=13,\
@@ -37,6 +37,7 @@ URxvt.scrollBar: false
 URxvt.termName: rxvt-unicode-256color
 URxvt*transpscrollbar: true
 URxvt.cursorBlink: true
+URxvt*buffered: false
 
 URxvt.iso14755: False
 URxvt.perl-ext-common: default,matcher
@@ -54,8 +55,8 @@ URxvt.keysym.C-M-c: builtin-string:
 URxvt.keysym.C-M-v: builtin-string:
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+
 ! special
 XTerm*background: #1e1e1e
-URxvt.background: [100]#0d222a
+URxvt.background: [75]#000000
 URxvt.foreground: #c3d5f2
-

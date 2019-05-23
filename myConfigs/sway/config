@@ -13,7 +13,7 @@
 
 set $mod Mod4
 set $alt Mod1
-set $term "urxvt"
+set $term urxvt
 set $web "firefox"
 
 # Workspaces
@@ -30,40 +30,40 @@ set $ws10 "10:"
 
 # Colors from Xresources
 
-set_from_resource $foreground  foreground #55cabb
-set_from_resource $background  background #010101
-set_from_resource $black1      color0  #000000
-set_from_resource $black2      color8  #263238
-set_from_resource $red1        color1  #ff1744
-set_from_resource $red2        color9  #f44336
-set_from_resource $green1      color2  #32cd32
-set_from_resource $green2      color10 #7cfc00
-set_from_resource $yellow1     color3  #ffd600
-set_from_resource $yellow2     color11 #ffee58
-set_from_resource $blue1       color4  #0000ff
-set_from_resource $blue2       color12 #12adff
-set_from_resource $magenta1    color5  #a1d13f
-set_from_resource $magenta2    color13 #e190af
-set_from_resource $cyan1       color6  #09cdda
-set_from_resource $cyan2       color14 #00ffff
-set_from_resource $white1      color7  #d2a4da
-set_from_resource $white2      color15 #ffffff
+set $foreground   #55cabb
+set $background   #161720
+set $black1       #000000
+set $black2       #263238
+set $red1         #ff1744
+set $red2         #f44336
+set $green1       #32cd32
+set $green2       #7cfc00
+set $yellow1      #ffd600
+set $yellow2      #ffee58
+set $blue1        #0000ff
+set $blue2        #12adff
+set $magenta1     #a1d13f
+set $magenta2     #e190af
+set $cyan1        #09cdda
+set $cyan2        #00ffff
+set $white1       #d2a4da
+set $white2       #ffffff
 
 # Window borders and colors
-default_border pixel 1
-default_floating_border normal 1
+new_window pixel 1
+new_float normal 2
 
-# Class                 border      backgr.     text         indicator       child_border
+# Class                 border      backgr.     text         indicator child_border
 
-client.focused          $background $black2         $green2      $blue1      $green1
-client.focused_inactive $background $background     $white1      $black2     $black2
-client.unfocused        $background $background     $white1      $magenta2   $black2
+client.focused          $background $black2     $green2      $blue1   $green1
+client.focused_inactive $background $background $white1      $black2   $black2
+client.unfocused        $background $background $white1      $magenta2 $black2
 
 #smart_borders on
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below
-font pango:FontAwesome 10.
-font pango:Roboto Mono for Powerline 10.
+font pango:FontAwesome 8.
+font pango:Roboto Mono for Powerline 8.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -132,7 +132,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle; exec --no-startup-id "~/.config/i3/setborder"
+bindsym $mod+Shift+space floating toggle; exec setborder
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -189,7 +189,7 @@ bindsym $mod+$alt+l exec "slock || i3lock --c 000000 -n"
 # Some Custom Keybindings
 
 bindsym $alt+Shift+w exec $web
-bindsym Print exec --no-startup-id "scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send -t 2 '$Screenshot taken'"
+bindsym Print exec --no-startup-id "scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send -t 2 'Screenshot taken'"
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
@@ -198,7 +198,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+Control+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'swaymsg exit'"
 
 # Volume and Brightness
 bindsym XF86AudioMute exec pulseaudio-ctl mute
@@ -240,13 +240,9 @@ assign [class="KeePass2"] $ws6
 #assign [class="keepassxc"] $ws6
 assign [class="Slack"] $ws4
 assign [class="Kodi" ] $ws5
-assign [class="discord"] $ws4
 for_window [class="MATLAB R2017b - academic use"] floating enable border normal 2
 for_window [class="Tk"] floating enable border normal 2
 for_window [class="keepassxc"] floating enable border normal 2
-for_window [class="GNU Octave"] floating enable border normal 2
-for_window [class="R_x11"] floating enable border normal 2
-for_window [class="Matplotlib"] floating enable border normal 2
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -254,46 +250,39 @@ for_window [class="Matplotlib"] floating enable border normal 2
 #	i3bar_command python /usr/lib/python3.6/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --i3
 #}
 
-#set $barbg	#0d222a
-set $barbg #0d222a
+set $barbg	#0d222a
 
 bar {
-    i3bar_command ~/.config/i3/polybar.sh
+		mode dock
+		position top
+        status_command ~/.config/i3/i3_conky.sh
+
+		#Systray
+		
+		tray_padding 2
+#		separator_symbol "::"
+        separator_symbol "  "
+
+		
+        #colors
+		
+		colors {
+			background $barbg
+			statusline #12c4ff
+			# Workspace Buttons
+			# Class            border      barbg     #text
+			focused_workspace  $barbg $barbg    $green2
+			active_workspace   $barbg $barbg    $black2
+			inactive_workspace $barbg $barbg    $white1
+			urgent_workspace   $barbg $barbg    $red1
+		}
 }
 
-#bar {
-#        i3bar_command i3bar -t
-#		mode dock
-#		position top
-#        status_command ~/.config/i3/i3_conky.sh
-#
-#		#Systray
-#		
-#		tray_padding 2
-##		separator_symbol "::"
-#        separator_symbol "|"
-#
-#		
-#        #colors
-#		
-#		colors {
-#			background $barbg
-#			statusline #12c4ff
-#			# Workspace Buttons
-#			# Class            border      barbg     #text
-#			focused_workspace  $barbg $barbg    $green2
-#			active_workspace   $barbg $barbg    $black2
-#			inactive_workspace $barbg $barbg    $white1
-#			urgent_workspace   $barbg $barbg    $red1
-#		}
-#        height 27
-#}
-
-exec --no-startup-id ~/bin/myscripts/i3startup
+exec --no-startup-id ~/bin/myscripts/swaystartup
 exec --no-startup-id dunst
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xss-lock -- slock 
-exec_always feh --bg-fill -0-0 ~/.config/i3/Wallpaper.png 
+exec_always feh --bg-scale -0-0 ~/.config/i3/Wallpaper.png 
 
 
 smart_borders on

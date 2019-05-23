@@ -6,7 +6,7 @@ i3 = i3ipc.Connection()
 
 def set_borders(container):
     if container.border == "pixel":
-        container.command("border normal 1")
+        container.command("border normal")
     else:
         container.command("border pixel 1")
 

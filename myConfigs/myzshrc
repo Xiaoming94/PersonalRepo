@@ -17,9 +17,16 @@ alias grep='grep --color=auto --exclude-dir=.cvs --exclude-dir=.git --exclude-di
 alias våldta='sudo !!'
 alias screenshot='scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png'
 alias i3config='vim ~/.config/i3/config'
+alias swayconfig='vim ~/.config/sway/config'
 alias initrbenv='eval "$(rbenv init -)"'
 alias matlab='~/bin/myscripts/matlab -nosplash -nodesktop'
+alias matlabgui='~/bin/myscripts/matlab'
 alias sysupg='pacaur -Syu --noedit --noconfirm'
+
+# Define vim aliases
+if [ -f ~/.EverVim.vimrc ]; then
+    alias vimd='vim -c "NERDTreeToggle"'
+fi
 # Exports, Defining exports and variables
 
 

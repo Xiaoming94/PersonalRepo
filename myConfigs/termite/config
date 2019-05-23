@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = RobotoMono Nerd Font Mono 10
+font = Roboto Mono for Powerline 11
 
 scrollback_lines = 10000
 search_wrap = true
@@ -47,21 +47,37 @@ background = rgba(13,34,42,1)
 highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
+
+# Black
 color0 = #000000
-color1 = #be0b24
-color2 = #0dca3c
-color3 = #ffeb00
-color4 = #1631eb
-color5 = #fe0299
-color6 = #0099a0
-color7 = #9591ba
 color8 = #314651
+                 
+# Reds           
+color1 = #be0b24
 color9 = #f44336
+                 
+# Green          
+color2 = #0dca3c
 color10 = #75f635
+                 
+# Yellow         
+color3 = #f2bf07
 color11 = #f2e46e
+                 
+# Blue           
+color4 = #1631eb
 color12 = #3da5fb
+                 
+# Magenta        
+color5 = #fe0299
 color13 = #f062c7
+                 
+# Cyan           
+color6 = #0099a0
 color14 = #00f8d7
+                 
+# White          
+color7 = #9591ba
 color15 = #ffffff
 
 [hints]

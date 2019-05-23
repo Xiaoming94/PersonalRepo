@@ -2,35 +2,35 @@
 #define bg_color  #0d222a
 #define cursor_c  #cfd8dc
 
-
+! Blacks
 #define scheme_c0 #000000
-#define scheme_c8 #314651
+#define scheme_c8 #293238
 
-
+! Reds
 #define scheme_c1 #be0b24
 #define scheme_c9 #f44336
 
-
+! Green
 #define scheme_c2 #0dca3c
 #define scheme_c10 #75f635
 
-
-#define scheme_c3 #ffeb00
+! Yellows
+#define scheme_c3 #f2bf07
 #define scheme_c11 #f2e46e
 
-
+! Blues
 #define scheme_c4 #1631eb
 #define scheme_c12 #3da5fb
 
-
+! Magentas
 #define scheme_c5 #fe0299
 #define scheme_c13 #f062c7
 
-
+! Cyan
 #define scheme_c6 #0099a0
 #define scheme_c14 #00f8d7
 
-
+! White
 #define scheme_c7 #9591ba
 #define scheme_c15 #ffffff
 

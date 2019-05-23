@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python ~/.config/i3/i3_ipc.py
